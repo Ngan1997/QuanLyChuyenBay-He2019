@@ -1777,6 +1777,7 @@ void ChinhSuaMB(DanhSach_MB &ds)
 		}
 	}
 }
+// ======================== QUAN LY CHUYEN BAY =========================
 bool NhapDuLieuCB(DanhSach_CB *chuyenbay, List &dscb)
 {
 	KhungCB();
@@ -1860,6 +1861,7 @@ bool NhapDuLieuCB(DanhSach_CB *chuyenbay, List &dscb)
 		kytu = 1;
 	}
 	int dem = 0;
+	int thoat = 1;
 	while (1)
 	{
 		while (c != 27)
@@ -1913,7 +1915,11 @@ bool NhapDuLieuCB(DanhSach_CB *chuyenbay, List &dscb)
 						{
 							cout << chuyenbay->data.NgayKhoiHanh.Gio;
 						}
+						
 						gotoxy(103,32);
+						cout<<chuyenbay->data.SanBayDen;
+						
+						gotoxy(103,37);
 						if (chuyenbay->data.TrangThai != -1)
 						{
 							switch (chuyenbay->data.TrangThai)
@@ -1940,7 +1946,7 @@ bool NhapDuLieuCB(DanhSach_CB *chuyenbay, List &dscb)
 									}
 							}
 						}
-						gotoxy(103,37);
+						gotoxy(103,42);
 						cout << chuyenbay->data.SoHieuMB;
 						dem--;
 						switch (dem)
@@ -2017,6 +2023,7 @@ bool NhapDuLieuCB(DanhSach_CB *chuyenbay, List &dscb)
 								}
 							case 1: // Ngay
 								{
+									AnConTro();
 									ChangeColor(12);
 									gotoxy(95,12);
 									cout << "Ngay  ";
@@ -2096,32 +2103,463 @@ bool NhapDuLieuCB(DanhSach_CB *chuyenbay, List &dscb)
 								}
 							case 2: // Thang
 								{
-									break;
+									AnConTro();
+									ChangeColor(12);
+									gotoxy(94,17);
+									cout << "Thang  ";
+									gotoxy(wherex(),wherey()-1);
+									for (int i = 1; i <= 3; i++)
+									{
+										for (int j = 1; j <= 6; j++)
+										{
+											if (i == 1 || i == 3)
+											{
+												if (i == 1)
+												{
+													if (j == 1)
+													{
+														cout << traitren;
+													}
+													else
+													{
+														if (j == 6)
+														{
+															cout << phaitren;
+														}
+														else
+														{
+															cout << ngang;
+														}
+													}
+												}
+												else
+												{
+													if (j == 1)
+													{
+														cout << traiduoi;
+													}
+													else
+													{
+														if (j == 6)
+														{
+															cout << phaiduoi;
+														}
+														else
+														{
+															cout << ngang;
+														}
+													}
+												}
+											}
+											else
+											{
+												if (j == 1 || j == 6)
+												{
+													cout << doc;
+												}
+												else
+												{
+													cout << " ";
+												}
+											}
+										}
+										gotoxy(wherex()-6,wherey()+1);
+									 }
+					                  	gotoxy(103,17);
+					                  	ChangeColor(15);
+					                  	if(chuyenbay->data.NgayKhoiHanh.Thang !=0)
+					                  	{
+					                       	if(chuyenbay->data.NgayKhoiHanh.Thang < 9)
+										  {
+										       cout<<"0"<<chuyenbay->data.NgayKhoiHanh.Thang; 	
+										  }	
+										  else
+										  {
+										  	   cout<<chuyenbay->data.NgayKhoiHanh.Thang;
+										  }
+										}
+										HienConTro();
+								     	break;
 								}
 							case 3: // Nam
 								{
+									AnConTro();
+									ChangeColor(12);
+								
+									gotoxy(96,22);
+									cout << "Nam  ";
+									gotoxy(wherex(),wherey()-1);
+										for (int i = 1; i <= 3; i++)
+									{
+										for (int j = 1; j <= 6; j++)
+										{
+											if (i == 1 || i == 3)
+											{
+												if (i == 1)
+												{
+													if (j == 1)
+													{
+														cout << traitren;
+													}
+													else
+													{
+														if (j == 6)
+														{
+															cout << phaitren;
+														}
+														else
+														{
+															cout << ngang;
+														}
+													}
+												}
+												else
+												{
+													if (j == 1)
+													{
+														cout << traiduoi;
+													}
+													else
+													{
+														if (j == 6)
+														{
+															cout << phaiduoi;
+														}
+														else
+														{
+															cout << ngang;
+														}
+													}
+												}
+											}
+											else
+											{
+												if (j == 1 || j == 6)
+												{
+													cout << doc;
+												}
+												else
+												{
+													cout << " ";
+												}
+											}
+										}
+										gotoxy(wherex()-6,wherey()+1);
+									}
+									gotoxy(103,22);
+									ChangeColor(15);
+									if(chuyenbay->data.NgayKhoiHanh.Nam !=0)
+									{
+									    cout<<chuyenbay->data.NgayKhoiHanh.Nam;
+									}
+									HienConTro();
 									break;
 								}
 							case 4: // Gio
 								{
+									AnConTro();
+									ChangeColor(12);
+									gotoxy(96,27);
+									
+									cout << "Gio  ";
+									gotoxy(wherex(),wherey()-1);
+										for (int i = 1; i <= 3; i++)
+									{
+										for (int j = 1; j <= 6; j++)
+										{
+											if (i == 1 || i == 3)
+											{
+												if (i == 1)
+												{
+													if (j == 1)
+													{
+														cout << traitren;
+													}
+													else
+													{
+														if (j == 6)
+														{
+															cout << phaitren;
+														}
+														else
+														{
+															cout << ngang;
+														}	}
+												}
+												
+												else
+												{
+													if (j == 1)
+													{
+														cout << traiduoi;
+													}
+													else
+													{
+														if (j == 6)
+														{
+															cout << phaiduoi;
+														}
+														else
+														{
+															cout << ngang;
+														}
+													}
+												}
+											}
+											else
+											{
+												if (j == 1 || j == 6)
+												{
+													cout << doc;
+												}
+												else
+												{
+													cout << " ";
+												}
+											}
+										}
+										gotoxy(wherex()-6,wherey()+1);
+									}
+									gotoxy(103,27);
+									ChangeColor(15);
+									if(chuyenbay->data.NgayKhoiHanh.Gio !=0)
+									{
+										if(chuyenbay->data.NgayKhoiHanh.Gio < 9)
+										{
+											cout<<" 0 "<<chuyenbay->data.NgayKhoiHanh.Gio;
+										}
+										else
+										{
+											cout<<chuyenbay->data.NgayKhoiHanh.Gio;
+										}
+										
+									}
+									HienConTro();
 									break;
 								}
 							case 5: // Diem den
 								{
+									AnConTro();
+									ChangeColor(12);
+									gotoxy(91,32);
+									
+									cout << "Diem den  ";
+									gotoxy(wherex(),wherey()-1);
+										for (int i = 1; i <= 3; i++)
+									{
+										for (int j = 1; j <= 24; j++)
+										{
+											if (i == 1 || i == 3)
+											{
+												if (i == 1)
+												{
+													if (j == 1)
+													{
+														cout << traitren;
+													}
+													else
+													{
+														if (j == 24)
+														{
+															cout << phaitren;
+														}
+														else
+														{
+															cout << ngang;
+														}
+													}
+												}
+												else
+												{
+													if (j == 1)
+													{
+														cout << traiduoi;
+													}
+													else
+													{
+														if (j == 24)
+														{
+															cout << phaiduoi;
+														}
+														else
+														{
+															cout << ngang;
+														}
+													}
+												}
+											}
+											else
+											{
+												if (j == 1 || j == 24)
+												{
+													cout << doc;
+												}
+												else
+												{
+													cout << " ";
+												}
+											}
+										}
+										gotoxy(wherex()-24,wherey()+1);
+									}
+									
+									gotoxy(103,32);
+									ChangeColor(15);
+								    cout<<chuyenbay->data.SanBayDen;
+									HienConTro();
 									break;
 								}
 							case 6: // Trang thai
 								{
+									AnConTro();
+									ChangeColor(12);
+									gotoxy(89,37);
+								
+									cout << "Trang thai  ";
+									gotoxy(wherex(),wherey()-1);
+									for (int i = 1; i <= 3; i++)
+									{
+										for (int j = 1; j <= 14; j++)
+										{
+											if (i == 1 || i == 3)
+											{
+												if (i == 1)
+												{
+													if (j == 1)
+													{
+														cout << traitren;
+													}
+													else
+													{
+														if (j == 14)
+														{
+															cout << phaitren;
+														}
+														else
+														{
+															cout << ngang;
+														}
+													}
+												}
+												else
+												{
+													if (j == 1)
+													{
+														cout << traiduoi;
+													}
+													else
+													{
+														if (j == 14)
+														{
+															cout << phaiduoi;
+														}
+														else
+														{
+															cout << ngang;
+														}
+													}
+												}
+											}
+											else
+											{
+												if (j == 1 || j == 14)
+												{
+													cout << doc;
+												}
+												else
+												{
+													cout << " ";
+												}
+											}
+										}
+										gotoxy(wherex()-14,wherey()+1);
+									}
+									gotoxy(103,37);
+									ChangeColor(15);
+									cout<<chuyenbay->data.TrangThai;
+									HienConTro();
 									break;
 								}
 							case 7: // So Hieu
 								{
+									AnConTro();
+									ChangeColor(12);
+									gotoxy(92,42);
+									
+									cout << "So Hieu  ";
+									gotoxy(wherex(),wherey()-1);
+									for (int i = 1; i <= 3; i++)
+									{
+										for (int j = 1; j <= 19; j++)
+										{
+											if (i == 1 || i == 3)
+											{
+												if (i == 1)
+												{
+													if (j == 1)
+													{
+														cout << traitren;
+													}
+													else
+													{
+														if (j == 19)
+														{
+															cout << phaitren;
+														}
+														else
+														{
+															cout << ngang;
+														}
+													}
+												}
+												else
+												{
+													if (j == 1)
+													{
+														cout << traiduoi;
+													}
+													else
+													{
+														if (j == 19)
+														{
+															cout << phaiduoi;
+														}
+														else
+														{
+															cout << ngang;
+														}
+													}
+												}
+											}
+											else
+											{
+												if (j == 1 || j == 19)
+												{
+													cout << doc;
+												}
+												else
+												{
+													cout << " ";
+												}
+											}
+										}
+										gotoxy(wherex()-19,wherey()+1);
+									}
+									gotoxy(103,42);
+									ChangeColor(15);
+									cout<<chuyenbay->data.SoHieuMB;
+									HienConTro();
 									break;
 								}
 							case 8: // Xac nhan
 								{
+									AnConTro();
+									gotoxy(97,46);
+									ChangeColor(12);
+	                                cout << "XAC NHAN";
 									break;
 								}
+								
 						}
 					}
 				}
@@ -2173,6 +2611,8 @@ bool NhapDuLieuCB(DanhSach_CB *chuyenbay, List &dscb)
 							cout << chuyenbay->data.NgayKhoiHanh.Gio;
 						}
 						gotoxy(103,32);
+						cout<<chuyenbay->data.SanBayDen;
+						gotoxy(103,37);
 						if (chuyenbay->data.TrangThai != -1)
 						{
 							switch (chuyenbay->data.TrangThai)
@@ -2206,6 +2646,9 @@ bool NhapDuLieuCB(DanhSach_CB *chuyenbay, List &dscb)
 						{
 							case 9: // Huy
 								{
+									ChangeColor(12);
+									gotoxy(114,46);
+									cout<<"HUY";
 									break;
 								}
 							case 1: // Ngay
@@ -2289,30 +2732,451 @@ bool NhapDuLieuCB(DanhSach_CB *chuyenbay, List &dscb)
 								}
 							case 2: // Thang
 								{
+									ChangeColor(12);
+								    gotoxy(94,17);
+									cout << "Thang  ";
+									gotoxy(wherex(),wherey()-1);
+									for (int i = 1; i <= 3; i++)
+									{
+										for (int j = 1; j <= 6; j++)
+										{
+											if (i == 1 || i == 3)
+											{
+												if (i == 1)
+												{
+													if (j == 1)
+													{
+														cout << traitren;
+													}
+													else
+													{
+														if (j == 6)
+														{
+															cout << phaitren;
+														}
+														else
+														{
+															cout << ngang;
+														}
+													}
+												}
+												else
+												{
+													if (j == 1)
+													{
+														cout << traiduoi;
+													}
+													else
+													{
+														if (j == 6)
+														{
+															cout << phaiduoi;
+														}
+														else
+														{
+															cout << ngang;
+														}
+													}
+												}
+											}
+											else
+											{
+												if (j == 1 || j == 6)
+												{
+													cout << doc;
+												}
+												else
+												{
+													cout << " ";
+												}
+											}
+										}
+										gotoxy(wherex()-6,wherey()+1);
+									}
+									gotoxy(103,17);
+									ChangeColor(15);
+									if (chuyenbay->data.NgayKhoiHanh.Thang != 0)
+									{
+										if (chuyenbay->data.NgayKhoiHanh.Thang < 9)
+										{
+											cout << "0" << chuyenbay->data.NgayKhoiHanh.Thang;
+										}
+										else
+										{
+											cout << chuyenbay->data.NgayKhoiHanh.Thang;
+										}
+									}
+								     HienConTro();							
 									break;
 								}
 							case 3: // Nam
 								{
+									ChangeColor(12);
+									gotoxy(96,22);
+									cout << "Nam  ";
+									gotoxy(wherex(),wherey()-1);
+										for (int i = 1; i <= 3; i++)
+									{
+										for (int j = 1; j <= 6; j++)
+										{
+											if (i == 1 || i == 3)
+											{
+												if (i == 1)
+												{
+													if (j == 1)
+													{
+														cout << traitren;
+													}
+													else
+													{
+														if (j == 6)
+														{
+															cout << phaitren;
+														}
+														else
+														{
+															cout << ngang;
+														}
+													}
+												}
+												else
+												{
+													if (j == 1)
+													{
+														cout << traiduoi;
+													}
+													else
+													{
+														if (j == 6)
+														{
+															cout << phaiduoi;
+														}
+														else
+														{
+															cout << ngang;
+														}
+													}
+												}
+											}
+											else
+											{
+												if (j == 1 || j == 6)
+												{
+													cout << doc;
+												}
+												else
+												{
+													cout << " ";
+												}
+											}
+										}
+										gotoxy(wherex()-6,wherey()+1);
+									}
+									gotoxy(103,22);
+									ChangeColor(15);
+									if(chuyenbay->data.NgayKhoiHanh.Nam !=0 )
+									{
+										cout<<chuyenbay->data.NgayKhoiHanh.Nam;
+									}
+									HienConTro();
 									break;
 								}
 							case 4: // Gio
 								{
-									break;
+									    ChangeColor(12);
+										gotoxy(96,27);
+										cout << "Gio  ";
+										gotoxy(wherex(),wherey()-1);
+											for (int i = 1; i <= 3; i++)
+										{
+											for (int j = 1; j <= 6; j++)
+											{
+												if (i == 1 || i == 3)
+												{
+													if (i == 1)
+													{
+														if (j == 1)
+														{
+															cout << traitren;
+														}
+														else
+														{
+															if (j == 6)
+															{
+																cout << phaitren;
+															}
+															else
+															{
+																cout << ngang;
+															}	}
+													}
+													
+													else
+													{
+														if (j == 1)
+														{
+															cout << traiduoi;
+														}
+														else
+														{
+															if (j == 6)
+															{
+																cout << phaiduoi;
+															}
+															else
+															{
+																cout << ngang;
+															}
+														}
+													}
+												}
+												else
+												{
+													if (j == 1 || j == 6)
+													{
+														cout << doc;
+													}
+													else
+													{
+														cout << " ";
+													}
+												}
+											}
+											gotoxy(wherex()-6,wherey()+1);
+										}
+										gotoxy(103,27);
+										ChangeColor(15);
+										if(chuyenbay->data.NgayKhoiHanh.Gio !=0 )
+										{
+											if(chuyenbay->data.NgayKhoiHanh.Gio <9)
+											{
+												cout<<chuyenbay->data.NgayKhoiHanh.Gio<<":00";
+											}
+											else
+											{
+												cout<<chuyenbay->data.NgayKhoiHanh.Gio;
+											}
+				
+										}
+										HienConTro();
+									   break;
 								}
 							case 5: // Diem den
 								{
+									ChangeColor(12);
+									gotoxy(91,32);
+									cout << "Diem den  ";
+									gotoxy(wherex(),wherey()-1);
+										for (int i = 1; i <= 3; i++)
+									{
+										for (int j = 1; j <= 24; j++)
+										{
+											if (i == 1 || i == 3)
+											{
+												if (i == 1)
+												{
+													if (j == 1)
+													{
+														cout << traitren;
+													}
+													else
+													{
+														if (j == 24)
+														{
+															cout << phaitren;
+														}
+														else
+														{
+															cout << ngang;
+														}
+													}
+												}
+												else
+												{
+													if (j == 1)
+													{
+														cout << traiduoi;
+													}
+													else
+													{
+														if (j == 24)
+														{
+															cout << phaiduoi;
+														}
+														else
+														{
+															cout << ngang;
+														}
+													}
+												}
+											}
+											else
+											{
+												if (j == 1 || j == 24)
+												{
+													cout << doc;
+												}
+												else
+												{
+													cout << " ";
+												}
+											}
+										}
+										gotoxy(wherex()-24,wherey()+1);
+									}
+									HienConTro();
+									gotoxy(103,32);
+									ChangeColor(15);
+							        cout<<chuyenbay->data.SanBayDen ;
 									break;
 								}
 							case 6: // Trang thai
 								{
+									ChangeColor(12);
+									gotoxy(89,37);
+									cout << "Trang thai  ";
+									gotoxy(wherex(),wherey()-1);
+									for (int i = 1; i <= 3; i++)
+									{
+										for (int j = 1; j <= 14; j++)
+										{
+											if (i == 1 || i == 3)
+											{
+												if (i == 1)
+												{
+													if (j == 1)
+													{
+														cout << traitren;
+													}
+													else
+													{
+														if (j == 14)
+														{
+															cout << phaitren;
+														}
+														else
+														{
+															cout << ngang;
+														}
+													}
+												}
+												else
+												{
+													if (j == 1)
+													{
+														cout << traiduoi;
+													}
+													else
+													{
+														if (j == 14)
+														{
+															cout << phaiduoi;
+														}
+														else
+														{
+															cout << ngang;
+														}
+													}
+												}
+											}
+											else
+											{
+												if (j == 1 || j == 14)
+												{
+													cout << doc;
+												}
+												else
+												{
+													cout << " ";
+												}
+											}
+										}
+										gotoxy(wherex()-14,wherey()+1);
+									}
+									HienConTro();
+									gotoxy(103,37);
+									ChangeColor(15);
+									cout<<chuyenbay->data.TrangThai;
+									
 									break;
 								}
 							case 7: // So Hieu
 								{
+									ChangeColor(12);
+									gotoxy(92,42);
+									cout << "So Hieu  ";
+									gotoxy(wherex(),wherey()-1);
+									for (int i = 1; i <= 3; i++)
+									{
+										for (int j = 1; j <= 19; j++)
+										{
+											if (i == 1 || i == 3)
+											{
+												if (i == 1)
+												{
+													if (j == 1)
+													{
+														cout << traitren;
+													}
+													else
+													{
+														if (j == 19)
+														{
+															cout << phaitren;
+														}
+														else
+														{
+															cout << ngang;
+														}
+													}
+												}
+												else
+												{
+													if (j == 1)
+													{
+														cout << traiduoi;
+													}
+													else
+													{
+														if (j == 19)
+														{
+															cout << phaiduoi;
+														}
+														else
+														{
+															cout << ngang;
+														}
+													}
+												}
+											}
+											else
+											{
+												if (j == 1 || j == 19)
+												{
+													cout << doc;
+												}
+												else
+												{
+													cout << " ";
+												}
+											}
+										}
+										gotoxy(wherex()-19,wherey()+1);
+									}
+									HienConTro();
+									gotoxy(103,42);
+									ChangeColor(15);
+									cout<<chuyenbay->data.SoHieuMB;
 									break;
 								}
 							case 8: // Xac nhan
 								{
+									ChangeColor(12);
+									gotoxy(97,46);
+                                 	cout << "XAC NHAN";
+                                 	ChangeColor(12);
+									gotoxy(97,46);
+                                 	cout << "HUY ";
 									break;
 								}
 						}
@@ -2330,7 +3194,6 @@ bool NhapDuLieuCB(DanhSach_CB *chuyenbay, List &dscb)
 								if (chuyenbay->data.MaCB.length() < 15)
 								{
 									ChangeColor(15);
-									cout << (char) InHoa(c);
 									chuyenbay->data.MaCB = chuyenbay->data.MaCB + (char) InHoa(c);
 								}
 								else
@@ -2349,7 +3212,7 @@ bool NhapDuLieuCB(DanhSach_CB *chuyenbay, List &dscb)
 						case 1: // Ngay
 							{
 								XuLiNhapSo(chuyenbay->data.NgayKhoiHanh.Ngay,c,kytu,2);
-								if (chuyenbay->data.NgayKhoiHanh.Thang == 0)
+								if (chuyenbay->data.NgayKhoiHanh.Ngay == 0)
 								{
 									while (chuyenbay->data.NgayKhoiHanh.Ngay == 0 || chuyenbay->data.NgayKhoiHanh.Ngay > 31)
 									{
@@ -2409,26 +3272,145 @@ bool NhapDuLieuCB(DanhSach_CB *chuyenbay, List &dscb)
 							}
 						case 2: // Thang
 							{
+								XuLiNhapSo(chuyenbay->data.NgayKhoiHanh.Thang,c,kytu,2);
+								if(chuyenbay->data.NgayKhoiHanh.Thang == 0)
+								{
+									while (chuyenbay->data.NgayKhoiHanh.Thang == 0 || chuyenbay->data.NgayKhoiHanh.Thang > 12)
+									{
+										AnConTro();
+										gotoxy(109,17);
+										cout << "Thang khong hop le";
+										Sleep(500);
+										gotoxy(109,17);
+										cout << "                  ";
+										chuyenbay->data.NgayKhoiHanh.Ngay = 0;
+										gotoxy(103,17);
+										cout << "   ";
+										gotoxy(103,17);
+										HienConTro();
+										c = getch();
+										if (c == -32 || c == 0)
+										{
+											c = getch();
+											kytu = 0;
+										}
+										else
+										{
+											kytu = 1;
+										}
+										XuLiNhapSo(chuyenbay->data.NgayKhoiHanh.Thang,c,kytu,2);
+									}
+								}
+								else
+								{
+									while (chuyenbay->data.NgayKhoiHanh.Thang == 0 || chuyenbay->data.NgayKhoiHanh.Thang > SoNgayTrongThang(chuyenbay->data.NgayKhoiHanh.Thang,chuyenbay->data.NgayKhoiHanh.Nam))
+									{
+										AnConTro();
+										gotoxy(109,17);
+										cout << "Thang khong hop le";
+										Sleep(500);
+										gotoxy(109,17);
+										cout << "                  ";
+										chuyenbay->data.NgayKhoiHanh.Thang = 0;
+										gotoxy(103,17);
+										cout << "   ";
+										gotoxy(103,17);
+										HienConTro();
+										c = getch();
+										if (c == -32 || c == 0)
+										{
+											c = getch();
+											kytu = 0;
+										}
+										else
+										{
+											kytu = 1;
+										}
+										XuLiNhapSo(chuyenbay->data.NgayKhoiHanh.Thang,c,kytu,2);
+									}
+								}
 								break;
 							}
+							
 						case 3: // Nam
-							{
-								break;
-							}
+							{   
+							      // XuLiNhapSo(chuyenbay->data.NgayKhoiHanh.Nam,c,kytu,4);
+									while(chuyenbay->data.NgayKhoiHanh.Nam == 0)
+									{
+										AnConTro();
+										gotoxy(109,22);
+										cout<<"Nam Khong Hop Le !";
+										Sleep(5000);
+										gotoxy(109,22);
+										cout<<"                  ";
+										chuyenbay->data.NgayKhoiHanh.Nam = 0;
+										gotoxy(103,22);
+										cout<<"    ";
+										gotoxy(103,22);
+										HienConTro();
+										c = getch();
+										if( c == -32 || c == 0)
+										{
+											c = getch();
+											kytu = 0;
+										}
+										else
+										{
+											kytu = 1;
+										}
+										 //XuLiNhapSo(chuyenbay->data.NgayKhoiHanh.Nam,c,kytu,4);
+						         	}
+						         		break;
+					        	}
 						case 4: // Gio
 							{
 								break;
 							}
 						case 5: // Diem den
 							{
+								if(chuyenbay->data.SanBayDen.length()<20)
+								{
+									ChangeColor(15);
+									cout<<(char)InHoa(c);
+									chuyenbay->data.SanBayDen = chuyenbay->data.SanBayDen+ (char)InHoa(c);
+								}
+								else
+								{
+									AnConTro();
+									gotoxy(126,32);
+									cout<<"It hon 20 ky tu !";
+									Sleep(5000);
+									gotoxy(122,32);
+									cout<<"                 ";
+									gotoxy(103,32);
+									HienConTro();
+								}
 								break;
 							}
 						case 6: // Trang thai
 							{
+								
 								break;
 							}
 						case 7: // So Hieu
 							{
+								if(chuyenbay->data.SoHieuMB.length() <15)
+								{
+									ChangeColor(15);
+									cout<<(char)InHoa(c);
+									chuyenbay->data.SoHieuMB = chuyenbay->data.SoHieuMB+ (char)InHoa(c);
+								}
+								else
+								{
+									AnConTro();
+									gotoxy(122,42);
+									cout<<"It hon 15 ky tu !";
+									Sleep(5000);
+									gotoxy(122,42);
+									cout<<"                 ";
+									gotoxy(103,42);
+									HienConTro();
+								}
 								break;
 							}
 					}
@@ -2465,7 +3447,7 @@ bool NhapDuLieuCB(DanhSach_CB *chuyenbay, List &dscb)
 						case 1: // Ngay
 							{
 								XuLiNhapSo(chuyenbay->data.NgayKhoiHanh.Ngay,c,kytu,2);
-								if (chuyenbay->data.NgayKhoiHanh.Thang == 0)
+								if (chuyenbay->data.NgayKhoiHanh.Ngay == 0)
 								{
 									while (chuyenbay->data.NgayKhoiHanh.Ngay == 0 || chuyenbay->data.NgayKhoiHanh.Ngay > 31)
 									{
@@ -2525,7 +3507,39 @@ bool NhapDuLieuCB(DanhSach_CB *chuyenbay, List &dscb)
 							}
 						case 2: // Thang
 							{
-								break;
+								
+								XuLiNhapSo(chuyenbay->data.NgayKhoiHanh.Thang,c,kytu,2);
+//								if(chuyenbay->data.NgayKhoiHanh.Thang == 0)
+//								{
+									while (chuyenbay->data.NgayKhoiHanh.Thang == 0 || chuyenbay->data.NgayKhoiHanh.Thang > 12)
+									{
+										AnConTro();
+										gotoxy(109,17);
+										cout << "Thang khong hop le";
+										Sleep(500);
+										gotoxy(109,17);
+										cout << "                  ";
+										chuyenbay->data.NgayKhoiHanh.Ngay = 0;
+										gotoxy(103,17);
+										cout << "   ";
+										gotoxy(103,17);
+										HienConTro();
+										c = getch();
+										if (c == -32 || c == 0)
+										{
+											c = getch();
+											kytu = 0;
+										}
+										else
+										{
+											kytu = 1;
+										}
+										XuLiNhapSo(chuyenbay->data.NgayKhoiHanh.Thang,c,kytu,2);
+									}
+							//	}
+								
+							break;
+							
 							}
 						case 3: // Nam
 							{
@@ -2537,6 +3551,29 @@ bool NhapDuLieuCB(DanhSach_CB *chuyenbay, List &dscb)
 							}
 						case 5: // Diem den
 							{
+								ChangeColor(15);
+								if(chuyenbay->data.SanBayDen.length() !=0 )
+								{
+									AnConTro();
+									gotoxy(wherex()-1,wherey());
+									cout<<"  ";
+									gotoxy(wherex()-1,wherey());
+									HienConTro();
+									chuyenbay->data.SanBayDen.erase(chuyenbay->data.SanBayDen.length()-1);
+									
+								}
+								else
+								{
+									AnConTro();
+									gotoxy(126,32);
+									cout<<"khong the xoa !";
+									Sleep(5000);
+									gotoxy(126,32);
+									cout<<"               ";
+									gotoxy(103,32);
+									HienConTro();
+									
+								}
 								break;
 							}
 						case 6: // Trang thai
@@ -2547,9 +3584,12 @@ bool NhapDuLieuCB(DanhSach_CB *chuyenbay, List &dscb)
 							{
 								break;
 							}
-					}
+		
+ 					
+				    	}
+			    	}
 				}
-			}
+		
 			c = getch();
 			if (c == -32 || c == 0)
 			{
@@ -2561,10 +3601,7 @@ bool NhapDuLieuCB(DanhSach_CB *chuyenbay, List &dscb)
 				kytu = 1;
 			}
 		}
-		if (c == 27)
-		{
-			break;
-		}
+		
 	}
 }
 void ThemCB(List &dscb)
